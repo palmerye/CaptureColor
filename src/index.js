@@ -2,9 +2,10 @@
  * @Author: palmer 
  * @Date: 2018-08-28 11:10:07 
  * @Last Modified by: palmer
- * @Last Modified time: 2018-08-31 17:04:23
+ * @Last Modified time: 2018-09-03 20:42:16
  */
 import html2canvas from 'html2canvas'
+import Clipboard from 'clipboard'
 const uuidv4 = require('uuid/v4')
 
 function CaptureColor(option) {
@@ -28,7 +29,7 @@ CaptureColor.prototype.setImg = function(dataUrl) {
     _img.style.cssText = 'position: absolute;top:0;left:0;right:0;bottom:0;z-index:99999999 !important;'
     _img.crossOrigin = 'Anonymous'
     _img.onload = () => {
-        console.log('Image is loaded');
+        console.log('Image is loaded')
     }
     _img.src = dataUrl || ''
 
@@ -58,6 +59,7 @@ CaptureColor.prototype.transformToImg = function(node) {
             _canvas_all.style.top = coordinate.y + 20 + 'px'
             _canvas_all.style.left = coordinate.x + 20 + 'px'
         }
+        
         _data.onclick = () => {
             this.reset()
         }
@@ -91,6 +93,10 @@ CaptureColor.prototype.infoShow = function(value) {
     return _div
 }
 
+CaptureColor.prototype.keyListener = function(e) {
+    console.log(e)
+}
+
 CaptureColor.prototype.reset = function() {
     let _canvas = document.getElementById(this.uuid)
     let _canvas_div = document.getElementById(this.uuid + '-div')
@@ -100,6 +106,7 @@ CaptureColor.prototype.reset = function() {
 
     _canvas_p.removeChild(_canvas)
     _canvas_div_p.removeChild(_canvas_div)
+    document.removeEventListener('keydown', this.keyListener, false)
 }
 
 CaptureColor.prototype.pickColor = function() {
@@ -113,7 +120,9 @@ CaptureColor.prototype.pickColor = function() {
     _div.style.cssText = 'display:inline-block;position:absolute;font-size: 0;box-shadow: 0 0 5px #fff;z-index:99999999 !important'
     _div.appendChild(canvas_s)
     _div.appendChild(this.infoShow())
-    
+
+    document.addEventListener('keydown', this.keyListener)
+
     document.body.appendChild(_div)
 }
 
