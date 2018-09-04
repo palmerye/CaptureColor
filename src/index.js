@@ -2,7 +2,7 @@
  * @Author: palmer 
  * @Date: 2018-08-28 11:10:07 
  * @Last Modified by: palmer
- * @Last Modified time: 2018-09-04 15:14:08
+ * @Last Modified time: 2018-09-04 15:24:55
  */
 import html2canvas from 'html2canvas'
 import Clipboard from 'clipboard'
@@ -106,6 +106,12 @@ CaptureColor.prototype.keyListener = function(e) {
     }
 }
 
+CaptureColor.prototype.Exit = function (e) {
+    if (e.keyCode === 27) {
+        this.reset()
+    }
+}
+
 CaptureColor.prototype.reset = function() {
     let _canvas = document.getElementById(this.uuid)
     let _canvas_div = document.getElementById(this.uuid + '-div')
@@ -119,6 +125,7 @@ CaptureColor.prototype.reset = function() {
     this.clipboard.destroy()
     this.clipboard = null
     document.removeEventListener('keydown', this.keyListener, false)
+    document.removeEventListener('keydown', this.Exit, false)
 }
 
 CaptureColor.prototype.pickColor = function() {
@@ -135,6 +142,7 @@ CaptureColor.prototype.pickColor = function() {
     document.body.appendChild(_div)
     
     document.addEventListener('keydown', this.keyListener.bind(this))
+    document.addEventListener('keydown', this.Exit.bind(this))
 
     this.clipboard = new Clipboard(document.getElementById(this.uuid + '-info-btn'))
     this.clipboard.on('success', function (e) {
@@ -143,15 +151,6 @@ CaptureColor.prototype.pickColor = function() {
     })
     this.clipboard.on('error', function (e) {
     })
-    // setTimeout(() => {
-    //     this.clipboard = new Clipboard(document.getElementById(this.uuid + '-info-btn'))
-    //     this.clipboard.on('success', function (e) {
-    //         console.log('成功复制至剪切板', e.text)
-    //         e.clearSelection()
-    //     })
-    //     this.clipboard.on('error', function (e) {
-    //     })
-    // }, 0);
 }
 
 export default CaptureColor
