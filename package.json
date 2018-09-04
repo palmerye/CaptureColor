@@ -27,6 +27,8 @@
     "rollup-plugin-babel": "^3.0.7"
   },
   "dependencies": {
-    "html2canvas": "^1.0.0-alpha.12"
+    "clipboard": "^2.0.1",
+    "html2canvas": "^1.0.0-alpha.12",
+    "uuid": "^3.3.2"
   }
 }
