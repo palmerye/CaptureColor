@@ -2,7 +2,7 @@
  * @Author: palmer 
  * @Date: 2018-08-28 11:10:07 
  * @Last Modified by: palmer
- * @Last Modified time: 2018-09-03 20:42:16
+ * @Last Modified time: 2018-09-04 15:14:08
  */
 import html2canvas from 'html2canvas'
 import Clipboard from 'clipboard'
@@ -11,6 +11,7 @@ const uuidv4 = require('uuid/v4')
 function CaptureColor(option) {
     this.Id = option.el
     this.node = {}
+    this.color = ''
 }
 
 CaptureColor.prototype.setCanvas_s = function(w=100, h=100) {
@@ -58,6 +59,7 @@ CaptureColor.prototype.transformToImg = function(node) {
             _canvas_info.getElementsByTagName('p')[1].getElementsByTagName('span')[0].innerText = `${_color}`
             _canvas_all.style.top = coordinate.y + 20 + 'px'
             _canvas_all.style.left = coordinate.x + 20 + 'px'
+            this.color = _color
         }
         
         _data.onclick = () => {
@@ -83,8 +85,9 @@ CaptureColor.prototype.infoShow = function(value) {
     _div.style.cssText = 'font-size:12px;color:#fff;text-align:center;background: rgba(0, 0, 0, 0.8)'
     let _info =
     `<p style="margin:0;">(x, y)</p>
-    <p style="margin:0;"><i style="display: inline-block;width:10px;height:10px;"></i> <span></span></p>
-    <p style="margin:0;">按 C 复制颜色值</p>
+    <p style="margin:0;"><i style="display: inline-block;width:10px;height:10px;"></i> <span id="${this.uuid + 'color'}"></span></p>
+    <p style="margin:0;">按 c 复制颜色值</p>
+    <a id="${_div.id + '-btn'}" class="${_div.id + '-btn'}" href="javascript:" style="display:block;height:0;overflow: hidden;" data-clipboard-target="#${this.uuid + 'color'}">复制</a>
     <span>
         <i style="position:absolute;top:50px;left:45px;width:11px;height:0.5px;background:red;display:inline-block;box-shadow: 0 0 1px #fff;"></i>
         <i style="position:absolute;top:45px;left:50px;width:0.5px;height:11px;background:red;display:inline-block;box-shadow: 0 0 1px #fff;"></i>
@@ -94,7 +97,13 @@ CaptureColor.prototype.infoShow = function(value) {
 }
 
 CaptureColor.prototype.keyListener = function(e) {
-    console.log(e)
+    if (e.keyCode === 67) {
+        document.getElementById(this.uuid + '-info-btn').click()
+        document.getElementById(this.uuid + '-div').style['box-shadow'] = '0px 0px 10px yellow'
+        setTimeout(() => {
+            document.getElementById(this.uuid + '-div').style['box-shadow'] = '0px 0px 5px #fff'
+        }, 500)
+    }
 }
 
 CaptureColor.prototype.reset = function() {
@@ -106,11 +115,14 @@ CaptureColor.prototype.reset = function() {
 
     _canvas_p.removeChild(_canvas)
     _canvas_div_p.removeChild(_canvas_div)
+    this.uuid = ''
+    this.clipboard.destroy()
+    this.clipboard = null
     document.removeEventListener('keydown', this.keyListener, false)
 }
 
 CaptureColor.prototype.pickColor = function() {
-    this.uuid = uuidv4()
+    this.uuid = 'cc' + uuidv4().split('-')[0]
     this.node = document.getElementById(this.Id)
     this.transformToImg(this.node)
     let canvas_s = this.setCanvas_s()
@@ -120,10 +132,26 @@ CaptureColor.prototype.pickColor = function() {
     _div.style.cssText = 'display:inline-block;position:absolute;font-size: 0;box-shadow: 0 0 5px #fff;z-index:99999999 !important'
     _div.appendChild(canvas_s)
     _div.appendChild(this.infoShow())
-
-    document.addEventListener('keydown', this.keyListener)
-
     document.body.appendChild(_div)
+    
+    document.addEventListener('keydown', this.keyListener.bind(this))
+
+    this.clipboard = new Clipboard(document.getElementById(this.uuid + '-info-btn'))
+    this.clipboard.on('success', function (e) {
+        console.log('成功复制至剪切板', e.text)
+        e.clearSelection()
+    })
+    this.clipboard.on('error', function (e) {
+    })
+    // setTimeout(() => {
+    //     this.clipboard = new Clipboard(document.getElementById(this.uuid + '-info-btn'))
+    //     this.clipboard.on('success', function (e) {
+    //         console.log('成功复制至剪切板', e.text)
+    //         e.clearSelection()
+    //     })
+    //     this.clipboard.on('error', function (e) {
+    //     })
+    // }, 0);
 }
 
 export default CaptureColor
