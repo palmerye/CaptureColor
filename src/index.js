@@ -2,7 +2,7 @@
  * @Author: palmer 
  * @Date: 2018-08-28 11:10:07 
  * @Last Modified by: palmer
- * @Last Modified time: 2018-09-04 15:24:55
+ * @Last Modified time: 2018-09-05 10:54:33
  */
 import html2canvas from 'html2canvas'
 import Clipboard from 'clipboard'
@@ -50,6 +50,7 @@ CaptureColor.prototype.transformToImg = function(node) {
         let _canvas_s = document.getElementById(this.uuid + '-s').getContext('2d')
         let _canvas_info = document.getElementById(this.uuid + '-info')
         let _canvas_all = document.getElementById(this.uuid + '-div')
+        
         // 注册canvas hover事件, 获取光标
         _data.onmousemove = (coordinate) => {
             _canvas_s.putImageData(_canvas.getImageData(coordinate.x - 50, coordinate.y - 50, 100, 100), 0, 0)
@@ -57,8 +58,8 @@ CaptureColor.prototype.transformToImg = function(node) {
             _canvas_info.getElementsByTagName('p')[0].innerText = `(${coordinate.x}, ${coordinate.y})`
             _canvas_info.getElementsByTagName('p')[1].getElementsByTagName('i')[0].style.backgroundColor = _color
             _canvas_info.getElementsByTagName('p')[1].getElementsByTagName('span')[0].innerText = `${_color}`
-            _canvas_all.style.top = coordinate.y + 20 + 'px'
-            _canvas_all.style.left = coordinate.x + 20 + 'px'
+            _canvas_all.style.top = (coordinate.y < _data.clientTop + _data.height - 150 ? coordinate.y + 15 : coordinate.y - 150 - 15) + 'px'
+            _canvas_all.style.left = (coordinate.x < _data.clientLeft + _data.width - 150 ? coordinate.x + 15 : coordinate.x - 100 - 15) + 'px'
             this.color = _color
         }
         
