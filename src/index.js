@@ -2,7 +2,7 @@
  * @Author: palmer 
  * @Date: 2018-08-28 11:10:07 
  * @Last Modified by: palmer
- * @Last Modified time: 2018-09-05 10:54:33
+ * @Last Modified time: 2018-09-05 11:05:48
  */
 import html2canvas from 'html2canvas'
 import Clipboard from 'clipboard'
@@ -64,6 +64,7 @@ CaptureColor.prototype.transformToImg = function(node) {
         }
         
         _data.onclick = () => {
+            document.getElementById(this.uuid + '-info-btn').click()
             this.reset()
         }
     })
