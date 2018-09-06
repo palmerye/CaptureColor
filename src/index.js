@@ -2,10 +2,11 @@
  * @Author: palmer 
  * @Date: 2018-08-28 11:10:07 
  * @Last Modified by: palmer
- * @Last Modified time: 2018-09-05 11:05:48
+ * @Last Modified time: 2018-09-06 15:55:36
  */
 import html2canvas from 'html2canvas'
 import Clipboard from 'clipboard'
+import { promises } from 'fs';
 const uuidv4 = require('uuid/v4')
 
 function CaptureColor(option) {
@@ -110,14 +111,17 @@ CaptureColor.prototype.keyListener = function(e) {
 
 CaptureColor.prototype.Exit = function (e) {
     if (e.keyCode === 27) {
+        console.log('exit')
         this.reset()
     }
 }
 
 CaptureColor.prototype.reset = function() {
+    document.removeEventListener('keydown', this.keyListener, false)
+    document.removeEventListener('keydown', this.Exit, false)
+    
     let _canvas = document.getElementById(this.uuid)
     let _canvas_div = document.getElementById(this.uuid + '-div')
-
     let _canvas_p = _canvas.parentElement
     let _canvas_div_p = _canvas_div.parentElement
 
@@ -126,13 +130,12 @@ CaptureColor.prototype.reset = function() {
     this.uuid = ''
     this.clipboard.destroy()
     this.clipboard = null
-    document.removeEventListener('keydown', this.keyListener, false)
-    document.removeEventListener('keydown', this.Exit, false)
 }
 
 CaptureColor.prototype.pickColor = function() {
-    this.uuid = 'cc' + uuidv4().split('-')[0]
+    this.uuid = this.uuid ? this.uuid : 'cc' + uuidv4().split('-')[0]
     this.node = document.getElementById(this.Id)
+    this.node.style['position'] = 'relative'
     this.transformToImg(this.node)
     let canvas_s = this.setCanvas_s()
 
@@ -143,15 +146,23 @@ CaptureColor.prototype.pickColor = function() {
     _div.appendChild(this.infoShow())
     document.body.appendChild(_div)
     
-    document.addEventListener('keydown', this.keyListener.bind(this))
-    document.addEventListener('keydown', this.Exit.bind(this))
+
+    this.keyListener = this.keyListener.bind(this)
+    this.Exit = this.Exit.bind(this)
+    document.addEventListener('keydown', this.keyListener)
+    document.addEventListener('keydown', this.Exit)
 
     this.clipboard = new Clipboard(document.getElementById(this.uuid + '-info-btn'))
-    this.clipboard.on('success', function (e) {
-        console.log('成功复制至剪切板', e.text)
-        e.clearSelection()
-    })
-    this.clipboard.on('error', function (e) {
+
+    return new Promise((resolve, reject) => {
+        this.clipboard.on('success', function (e) {
+            console.log('成功复制至剪切板', e.text)
+            e.clearSelection()
+            resolve(e.text)
+        })
+        this.clipboard.on('error', function (e) {
+            reject(e)
+        })
     })
 }
 
