@@ -18,10 +18,10 @@ npm i capturecolor --save
 const CaptureColor = require('capturecolor')
 
 const capColor = new CaptureColor({
-    el: 'app' // 截图对象 DOM 的id, 最好是根节点
+    el: 'app' // 吸色对象 DOM 的id, 最好是根节点
 })
 
-// 触发截图动作
+// 触发吸色动作
 capColor.pickColor()
 .then(res => {
     console.log('所选颜色为', res)
