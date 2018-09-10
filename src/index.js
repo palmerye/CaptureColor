@@ -2,7 +2,7 @@
  * @Author: palmer 
  * @Date: 2018-08-28 11:10:07 
  * @Last Modified by: palmer
- * @Last Modified time: 2018-09-07 16:53:47
+ * @Last Modified time: 2018-09-10 16:06:55
  */
 import html2canvas from 'html2canvas'
 import Clipboard from 'clipboard'
@@ -38,12 +38,13 @@ CaptureColor.prototype.setImg = function(dataUrl) {
 }
 
 CaptureColor.prototype.transformToImg = function(node) {
+    let _clientRect = node.getBoundingClientRect()
     html2canvas(node, {
         useCORS: true
     }).then(data => {
         let _data = data
         _data.id = this.uuid
-        _data.style.cssText = `position: absolute;top:${node.getBoundingClientRect().top}px;left:${node.getBoundingClientRect().left}px;z-index:11111111 !important;`
+        _data.style.cssText = `position: absolute;top:${_clientRect.top}px;left:${_clientRect.left}px;width:${_clientRect.width}px;height:${_clientRect.height}px;z-index:11111111 !important;`
         document.body.appendChild(_data)
 
         let _canvas = _data.getContext('2d')
@@ -100,7 +101,6 @@ CaptureColor.prototype.infoShow = function(value) {
 
 CaptureColor.prototype.keyListener = function(e) {
     if (e.keyCode === 67) {
-        console.log('click', this.uuid)
         document.getElementById(this.uuid + '-info-btn').click()
         document.getElementById(this.uuid + '-div').style['box-shadow'] = '0px 0px 10px yellow'
         setTimeout(() => {
@@ -111,7 +111,6 @@ CaptureColor.prototype.keyListener = function(e) {
 
 CaptureColor.prototype.Exit = function (e) {
     if (e.keyCode === 27 && this.uuid) {
-        console.log('exit')
         this.reset()
     }
 }
@@ -134,7 +133,6 @@ CaptureColor.prototype.reset = function() {
 
 CaptureColor.prototype.pickColor = function() {
     this.uuid = this.uuid ? this.uuid : 'cc' + uuidv4().split('-')[0]
-    console.log(this.uuid)
     this.node = document.getElementById(this.Id)
     this.node.style['position'] = 'relative'
     this.transformToImg(this.node)
