@@ -18,7 +18,8 @@ npm i capturecolor --save
 const CaptureColor = require('capturecolor')
 
 const capColor = new CaptureColor({
-    el: 'app' // 吸色对象 DOM 的id, 最好是根节点
+    el: 'app', // 吸色对象 DOM 的id, 最好是根节点
+    scale: 2   // 缩放系数, type number
 })
 
 // 触发吸色动作
