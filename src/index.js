@@ -2,7 +2,7 @@
  * @Author: palmer 
  * @Date: 2018-08-28 11:10:07 
  * @Last Modified by: palmer
- * @Last Modified time: 2018-09-12 10:32:01
+ * @Last Modified time: 2018-09-13 09:58:47
  */
 import html2canvas from 'html2canvas'
 import Clipboard from 'clipboard'
@@ -10,6 +10,7 @@ const uuidv4 = require('uuid/v4')
 
 function CaptureColor(option) {
     this.Id = option.el
+    this.scale = option.scale
     this.node = {}
     this.color = ''
 }
@@ -54,7 +55,7 @@ CaptureColor.prototype.transformToImg = function(node) {
         
         // 注册canvas hover事件, 获取光标
         _data.onmousemove = (coordinate) => {
-            _canvas_s.putImageData(_canvas.getImageData(coordinate.x - _clientRect.left - 50, coordinate.y - _clientRect.top - 50, 100, 100), 0, 0)
+            _canvas_s.drawImage(_data, coordinate.x - _clientRect.left - 50/this.scale, coordinate.y - _clientRect.top - 50/this.scale, 100, 100, 0, 0, 100*this.scale, 100*this.scale)
             let _color = this.RgbToHex(_canvas_s.getImageData(50, 50, 1, 1).data.slice(0, 3).toString())
             _canvas_info.getElementsByTagName('p')[0].innerText = `(${coordinate.x}, ${coordinate.y})`
             _canvas_info.getElementsByTagName('p')[1].getElementsByTagName('i')[0].style.backgroundColor = _color
