@@ -1,0 +1,35 @@
+{
+  "name": "capturecolor",
+  "version": "1.0.6",
+  "description": "CaptureColor",
+  "main": "./dist/CaptureColor.umd.js",
+  "scripts": {
+    "build": "set NODE_ENV=produciton && rollup --config ./build/rollup.config.js -w"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/palmerye/CaptureColor.git"
+  },
+  "keywords": [
+    "color",
+    "pick"
+  ],
+  "author": "palmer (palmerye@gmail.com)",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/palmerye/CaptureColor/issues"
+  },
+  "homepage": "https://github.com/palmerye/CaptureColor#readme",
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-preset-es2015-rollup": "^3.0.0",
+    "rollup": "^0.65.0",
+    "rollup-plugin-babel": "^3.0.7",
+    "rollup-plugin-terser": "^2.0.2"
+  },
+  "dependencies": {
+    "clipboard": "^2.0.1",
+    "html2canvas": "^1.0.0-alpha.12",
+    "uuid": "^3.3.2"
+  }
+}
