@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "parcel index.html"
+    "start": "parcel  --public-url ./ -d dist index.html"
   },
   "keywords": [],
   "author": "palmer (palmerye@gmail.com)",
@@ -19,6 +19,7 @@
   },
   "devDependencies": {
     "autoprefixer": "^9.1.5",
+    "babel-core": "^6.26.3",
     "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
     "node-sass": "^4.9.3",
