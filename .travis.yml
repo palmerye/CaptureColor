@@ -7,10 +7,12 @@ cache:
 # S: Build Lifecycle
 install:
   - npm install
+  - ls
   - cd ./demo && npm install
   - ls
 
 before_script:
+  - ls
   - cd ..
 
 script:
