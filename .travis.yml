@@ -7,18 +7,15 @@ cache:
 # S: Build Lifecycle
 install:
   - npm install
-  - cd ./demo
-  - npm install
-
+  - cd ./demo && npm install
+  - ls
 
 before_script:
   - cd ..
 
 script:
-  - npm run build
-  - cp -f ./dist/CaptureColor.umd.js ./demo/src/static
-  - cd ./demo
-  - npm run buildDemo
+  - npm run build && cp -f ./dist/CaptureColor.umd.js ./demo/src/static
+  - cd ./demo && npm run buildDemo
 
 after_script:
   # - git clone https://${GH_REF} .deploy_git
