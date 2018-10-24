@@ -3,6 +3,7 @@ node_js: stable
 cache:
   directories:
     - node_modules
+    - ./demo/node_modules
 
 before_install:
   - npm install cnpm -g
@@ -24,15 +25,15 @@ after_script:
   - git init
   - git config user.name "palmerye"
   - git config user.email "palmerye@gmail.com"
-  - git add .
+  - git add --all
   - git commit -m ":memo:\ Update docs by CI"
-  - git branch -l
-  - git push --force --quiet "https://${CI_TOKEN}@${GH_REF}" gh-pages:master
+  - git show-ref
+  - git push --force --quiet "https://${CI_TOKEN}@${GH_REF}" gh-pages:*
   - cd ../../
-  - git add .
+  - git add --all
   - git commit -m ":memo:\ Update docs by CI"
-  - git branch -l
-  - git push --force --quiet "https://${CI_TOKEN}@${GH_REF}" master:dev
+  - git show-ref
+  - git push --force --quiet "https://${CI_TOKEN}@${GH_REF}" master:*
 # E: Build LifeCycle
 
 branches:
