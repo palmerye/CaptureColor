@@ -4,10 +4,13 @@ cache:
   directories:
     - node_modules
 
+before_install:
+  - npm install cnpm -g
+
 # S: Build Lifecycle
 install:
-  - npm install
-  - cd ./demo && npm install
+  - cnpm install
+  - cd ./demo && cnpm install
 
 before_script:
   - cd ..
@@ -17,24 +20,25 @@ script:
   - cd ./demo && npm run build
 
 after_script:
-  - ls
-  # - git clone https://${GH_REF} .deploy_git
-  # - cd .deploy_git
-  # - git checkout master
-  # - cd ../
-  # - mv .deploy_git/.git/ ./public/
-  # - cd ./demo/dist
-  # - git init
-  # - git config user.name "palmerye"
-  # - git config user.email "palmerye@gmail.com"
-  # - git add .
-  # - git commit -m ":memo:\ Update docs by CI"
-  # - git push --force --quiet "https://${CI_TOKEN}@${GH_REF}" gh-pages:gh-pages
+  - cd  ./dist
+  - git init
+  - git config user.name "palmerye"
+  - git config user.email "palmerye@gmail.com"
+  - git add .
+  - git commit -m ":memo:\ Update docs by CI"
+  - git push --force --quiet "https://${CI_TOKEN}@${GH_REF}" gh-pages:gh-pages
+  - cd ../../
+  - git init
+  - git config user.name "palmerye"
+  - git config user.email "palmerye@gmail.com"
+  - git add .
+  - git commit -m ":memo:\ Update docs by CI"
+  - git push --force --quiet "https://${CI_TOKEN}@${GH_REF}" master:master
 # E: Build LifeCycle
 
 branches:
   only:
-    - master
+    - dev
 env:
  global:
    - GH_REF: github.com/palmerye/CaptureColor.git
