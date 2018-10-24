@@ -12,7 +12,7 @@ export default class Header extends Component {
             <div>
                 <div className={style.header}>
                     <div>
-                        <a href="/CaptureColor">
+                        <a href="/CaptureColor/">
                             <h1>CAPTURECOLOR</h1>
                         </a>
                         <Dropper></Dropper>
