@@ -4,7 +4,8 @@
   "description": "CaptureColor",
   "main": "./dist/CaptureColor.umd.js",
   "scripts": {
-    "build": "set NODE_ENV=produciton && rollup --config ./build/rollup.config.js -w"
+    "dev": "set NODE_ENV=produciton && rollup --config ./build/rollup.config.js -w",
+    "build": "set NODE_ENV=produciton && rollup --config ./build/rollup.config.js"
   },
   "repository": {
     "type": "git",

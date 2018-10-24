@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "parcel index.html",
-    "buildDemo": "parcel  --public-url ./ -d dist index.html"
+    "dev": "parcel index.html",
+    "build": "parcel  --public-url ./ -d dist index.html"
   },
   "keywords": [],
   "author": "palmer (palmerye@gmail.com)",
