@@ -10,7 +10,6 @@ install:
   - cd ./demo && npm install
 
 before_script:
-  - ls
   - cd ..
 
 script:
@@ -18,6 +17,7 @@ script:
   - cd ./demo && npm run build
 
 after_script:
+  - ls
   # - git clone https://${GH_REF} .deploy_git
   # - cd .deploy_git
   # - git checkout master
