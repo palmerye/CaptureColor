@@ -20,8 +20,6 @@ script:
   - cd ./demo && npm run build
 
 after_script:
-  - git clone https://${GH_REF}
-  - ls
   - cd ./dist
   - git init
   - git remote add origin https://${GH_REF}
