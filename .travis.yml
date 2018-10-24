@@ -20,7 +20,9 @@ script:
   - cd ./demo && npm run build
 
 after_script:
-  - cd  ./dist
+  - git clone https://${GH_REF}
+  - ls
+  - cd ./dist
   - git init
   - git config user.name "palmerye"
   - git config user.email "palmerye@gmail.com"
