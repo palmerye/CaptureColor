@@ -1,0 +1,43 @@
+language: node_js
+node_js: stable
+cache:
+  directories:
+    - node_modules
+
+# S: Build Lifecycle
+install:
+  - npm install
+  - cd ./demo
+  - npm install
+
+
+before_script:
+  - cd ..
+
+script:
+  - npm run build
+  - cp -f ./dist/CaptureColor.umd.js ./demo/src/static
+  - cd ./demo
+  - npm run buildDemo
+
+after_script:
+  # - git clone https://${GH_REF} .deploy_git
+  # - cd .deploy_git
+  # - git checkout master
+  # - cd ../
+  # - mv .deploy_git/.git/ ./public/
+  # - cd ./demo/dist
+  # - git init
+  # - git config user.name "palmerye"
+  # - git config user.email "palmerye@gmail.com"
+  # - git add .
+  # - git commit -m ":memo:\ Update docs by CI"
+  # - git push --force --quiet "https://${CI_TOKEN}@${GH_REF}" gh-pages:gh-pages
+# E: Build LifeCycle
+
+branches:
+  only:
+    - master
+env:
+ global:
+   - GH_REF: github.com/palmerye/CaptureColor.git
