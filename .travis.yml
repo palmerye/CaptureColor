@@ -25,14 +25,14 @@ after_script:
   - git init
   - git config user.name "palmerye"
   - git config user.email "palmerye@gmail.com"
-  - git add --all
+  - git add .
   - git commit -m ":memo:\ Update docs by CI"
   - git checkout master
-  - git push --force --quiet "https://${CI_TOKEN}@${GH_REF}" gh-pages:master
+  - git push --force --quiet "https://${CI_TOKEN}@${GH_REF}" master:gh-pages
   - cd ../../
-  - git add --all
+  - git add .
   - git commit -m ":memo:\ Update docs by CI"
-  - git push --force --quiet "https://${CI_TOKEN}@${GH_REF}" master:dev
+  - git push --force --quiet "https://${CI_TOKEN}@${GH_REF}" dev:master
 # E: Build LifeCycle
 
 branches:
