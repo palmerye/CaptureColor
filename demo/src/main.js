@@ -7,9 +7,9 @@ import CSSTransitionGroup from 'react-transition-group/CSSTransitionGroup'
 const CaptureColor = require('./static/CaptureColor.umd')
 
 import Header from './component/header'
-import Index from './component/index'
+import Home from './component/home'
 import Go from './component/go'
-import Introduction from './component/introduction'
+import Index from './component/Index'
 
 class App extends Component {
     constructor () {
@@ -66,7 +66,7 @@ class App extends Component {
                 transitionEnterTimeout={1}
                 transitionLeaveTimeout={3000}>
                     {
-                        state.indexPage === 1 ? <Index key={1}></Index> : <Introduction key={2}></Introduction>
+                        state.indexPage === 1 ? <Home key={1}></Home> : <Index key={2}></Index>
                     }
                 </CSSTransitionGroup>
                 {

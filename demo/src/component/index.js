@@ -2,8 +2,17 @@ import React, { Component } from 'react'
 import style from '../static/main.scss'
 import sr from './sr'
 
+import Introduction from './introduction'
+import Demo from './demo'
+import Use from './useIt'
+import Top from './top'
+
 export default class Index extends Component {
-    componentDidMount () {
+    constructor() {
+        super()
+    }
+
+    componentDidMount() {
         const config = {
             reset: true,
             origin: 'top',
@@ -28,33 +37,26 @@ export default class Index extends Component {
                 console.log('滚轮结束了');
             }
         }
-        sr.reveal(this.refs.title, config)
-        sr.reveal(this.refs.badges, {
-            origin: 'bottom',
-            duration: 1000,
-            delay: 150,
-            distance: '15rem',
-            scale: 1,
-            easing: 'ease'
-        })
+        sr.reveal(this.refs.introduction, config)
+        sr.reveal(this.refs.demo, config)
+        sr.reveal(this.refs.use, config)
+        console.log(this.refs)
     }
+
     render() {
         return (
             <div>
-                <div className={style.index} >
-                    <h1 ref='title'>CaptureColor</h1>
-                    <div ref='badges'>
-                        <a href="https://github.com/palmerye/CaptureColor" target="_blank">
-                            <img src="https://img.shields.io/travis/palmerye/CaptureColor.svg?style=for-the-badge&colorB=ee3434"></img>
-                        </a>
-                        <a href="https://github.com/palmerye/CaptureColor" target="_blank">
-                            <img src="https://img.shields.io/github/stars/palmerye/CaptureColor.svg?style=for-the-badge&label=Stars&colorB=ee3434"></img>
-                        </a>
-                        <a href="https://github.com/palmerye/CaptureColor" target="_blank">
-                            <img src="https://img.shields.io/npm/dt/capturecolor.svg?style=for-the-badge&colorB=e99e12"></img>
-                        </a>
-                    </div>
+                <div className={style.introduction}>
+                    <a name="introduction" style={{opacity: 0}}></a>
+                    <Introduction ref="introduction"></Introduction>
+                    
+                    <a name="demo" style={{opacity: 0}}></a>
+                    <Demo ref="demo"></Demo>
+
+                    <a name="use" style={{opacity: 0}}></a>
+                    <Use ref="use"></Use>
                 </div>
+                <Top></Top>
             </div>
         )
     }

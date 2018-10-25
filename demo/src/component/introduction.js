@@ -3,8 +3,6 @@ import Prism from 'prismjs'
 import 'prismjs/themes/prism-okaidia.css'
 import style from '../static/main.scss'
 
-import Top from './top'
-
 let introductionText = `const CaptureColor = require('capturecolor')
 
 const capColor = new CaptureColor({
@@ -32,29 +30,12 @@ export default class Index extends Component {
 
         return (
             <div>
-                <div className={style.introduction}>
-                    <a name="introduction" style={{opacity: 0}}></a>
-                    <div className={style.codeBlock}>
-                        <pre className={cls} data-role='code-root'>
-                            <code dangerouslySetInnerHTML={{__html: html}} className={cls}/>
-                        </pre>
-                    </div>
-                    
-                    <a name="demo" style={{opacity: 0}}></a>
-                    <div className={style.codeBlock}>
-                        <pre className={cls} data-role='code-root'>
-                            <code dangerouslySetInnerHTML={{__html: html}} className={cls}/>
-                        </pre>
-                    </div>
-
-                    <a name="use" style={{opacity: 0}}></a>
-                    <div className={style.codeBlock}>
-                        <pre className={cls} data-role='code-root'>
-                            <code dangerouslySetInnerHTML={{__html: html}} className={cls}/>
-                        </pre>
-                    </div>
+                <h1>How To Use</h1>
+                <div className={style.codeBlock}>
+                    <pre className={cls} data-role='code-root'>
+                        <code dangerouslySetInnerHTML={{__html: html}} className={cls}/>
+                    </pre>
                 </div>
-                <Top></Top>
             </div>
         )
     }
