@@ -128253,7 +128253,7 @@ function (_Component) {
 }(_react.Component);
 
 exports.default = Go;
-},{"react":"node_modules/react/index.js","../static/main.scss":"src/static/main.scss","./dropper":"src/component/dropper.js"}],"src/component/Index.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","../static/main.scss":"src/static/main.scss","./dropper":"src/component/dropper.js"}],"src/component/index.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -128402,7 +128402,7 @@ var _home = _interopRequireDefault(require("./component/home"));
 
 var _go = _interopRequireDefault(require("./component/go"));
 
-var _Index = _interopRequireDefault(require("./component/Index"));
+var _index = _interopRequireDefault(require("./component/index"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -128494,7 +128494,7 @@ function (_Component) {
         transitionLeaveTimeout: 3000
       }, state.indexPage === 1 ? _react.default.createElement(_home.default, {
         key: 1
-      }) : _react.default.createElement(_Index.default, {
+      }) : _react.default.createElement(_index.default, {
         key: 2
       })), state.indexPage === 1 && _react.default.createElement(_go.default, {
         letGo: this.letGo.bind(this)
@@ -128509,7 +128509,7 @@ var _default = App;
 exports.default = _default;
 
 _reactDom.default.render(_react.default.createElement(App, null), document.getElementById('app'));
-},{"normalize.css":"node_modules/normalize.css/normalize.css","./static/main.scss":"src/static/main.scss","react":"node_modules/react/index.js","react-dom":"node_modules/react-dom/index.js","react-transition-group/CSSTransitionGroup":"node_modules/react-transition-group/CSSTransitionGroup.js","./static/CaptureColor.umd":"src/static/CaptureColor.umd.js","./component/header":"src/component/header.js","./component/home":"src/component/home.js","./component/go":"src/component/go.js","./component/Index":"src/component/Index.js"}],"node_modules/._parcel-bundler@1.10.3@parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"normalize.css":"node_modules/normalize.css/normalize.css","./static/main.scss":"src/static/main.scss","react":"node_modules/react/index.js","react-dom":"node_modules/react-dom/index.js","react-transition-group/CSSTransitionGroup":"node_modules/react-transition-group/CSSTransitionGroup.js","./static/CaptureColor.umd":"src/static/CaptureColor.umd.js","./component/header":"src/component/header.js","./component/home":"src/component/home.js","./component/go":"src/component/go.js","./component/index":"src/component/index.js"}],"node_modules/._parcel-bundler@1.10.3@parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;

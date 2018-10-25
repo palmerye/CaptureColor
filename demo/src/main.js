@@ -9,7 +9,7 @@ const CaptureColor = require('./static/CaptureColor.umd')
 import Header from './component/header'
 import Home from './component/home'
 import Go from './component/go'
-import Index from './component/Index'
+import Index from './component/index'
 
 class App extends Component {
     constructor () {
