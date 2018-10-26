@@ -10,7 +10,8 @@ export default class Index extends Component {
         return (
             <div>
                 <div>
-                    demo
+                    <h1>demo</h1>
+
                 </div>
             </div>
         )

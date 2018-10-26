@@ -183,19 +183,26 @@ var reloadCSS = require('_css_loader');
 module.hot.dispose(reloadCSS);
 module.hot.accept(reloadCSS);
 module.exports = {
-  "badges": "_badges_18hr3_15",
-  "index": "_index_18hr3_23 _badges_18hr3_15",
-  "masked-animation": "_masked-animation_18hr3_1",
-  "header": "_header_18hr3_52",
-  "headerList": "_headerList_18hr3_70",
-  "introduction": "_introduction_18hr3_97",
-  "codeBlock": "_codeBlock_18hr3_105",
-  "go": "_go_18hr3_110",
-  "dropper": "_dropper_18hr3_157",
-  "top": "_top_18hr3_172",
-  "route-enter-active": "_route-enter-active_18hr3_186"
+  "badges": "_badges_1ap88_15",
+  "index": "_index_1ap88_23 _badges_1ap88_15",
+  "masked-animation": "_masked-animation_1ap88_1",
+  "header": "_header_1ap88_52",
+  "headerList": "_headerList_1ap88_70",
+  "introduction": "_introduction_1ap88_97",
+  "in_title": "_in_title_1ap88_118",
+  "csImg": "_csImg_1ap88_157",
+  "csImg1": "_csImg1_1ap88_160 _csImg_1ap88_157",
+  "csImg2": "_csImg2_1ap88_167 _csImg_1ap88_157",
+  "csImg3": "_csImg3_1ap88_174 _csImg_1ap88_157",
+  "csImg4": "_csImg4_1ap88_181 _csImg_1ap88_157",
+  "csImg5": "_csImg5_1ap88_188 _csImg_1ap88_157",
+  "codeBlock": "_codeBlock_1ap88_195",
+  "go": "_go_1ap88_200",
+  "dropper": "_dropper_1ap88_247",
+  "top": "_top_1ap88_262",
+  "route-enter-active": "_route-enter-active_1ap88_276"
 };
-},{"./bg.jpg":[["bg.96d4a3de.jpg","src/static/bg.jpg"],"src/static/bg.jpg"],"_css_loader":"node_modules/._parcel-bundler@1.10.3@parcel-bundler/src/builtins/css-loader.js"}],"node_modules/react/node_modules/object-assign/index.js":[function(require,module,exports) {
+},{"./image\\bg.jpg":[["bg.ca179baa.jpg","src/static/image/bg.jpg"],"src/static/image/bg.jpg"],"_css_loader":"node_modules/._parcel-bundler@1.10.3@parcel-bundler/src/builtins/css-loader.js"}],"node_modules/react/node_modules/object-assign/index.js":[function(require,module,exports) {
 /*
 object-assign
 (c) Sindre Sorhus
@@ -128093,7 +128100,7 @@ function (_Component) {
   _createClass(Index, [{
     key: "render",
     value: function render() {
-      return _react.default.createElement("div", null, _react.default.createElement("div", null, "demo"));
+      return _react.default.createElement("div", null, _react.default.createElement("div", null, _react.default.createElement("h1", null, "demo")));
     }
   }]);
 
@@ -128253,7 +128260,17 @@ function (_Component) {
 }(_react.Component);
 
 exports.default = Go;
-},{"react":"node_modules/react/index.js","../static/main.scss":"src/static/main.scss","./dropper":"src/component/dropper.js"}],"src/component/index.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","../static/main.scss":"src/static/main.scss","./dropper":"src/component/dropper.js"}],"src/static/image/camera.svg":[function(require,module,exports) {
+module.exports = "/camera.b17c9ece.svg";
+},{}],"src/static/image/chucks.svg":[function(require,module,exports) {
+module.exports = "/chucks.0358a534.svg";
+},{}],"src/static/image/film.svg":[function(require,module,exports) {
+module.exports = "/film.a17c3789.svg";
+},{}],"src/static/image/hat.svg":[function(require,module,exports) {
+module.exports = "/hat.de0f60ff.svg";
+},{}],"src/static/image/photography.svg":[function(require,module,exports) {
+module.exports = "/photography.874c2b38.svg";
+},{}],"src/component/index.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -128296,6 +128313,16 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+var csImg1 = require('../static/image/camera.svg');
+
+var csImg2 = require('../static/image/chucks.svg');
+
+var csImg3 = require('../static/image/film.svg');
+
+var csImg4 = require('../static/image/hat.svg');
+
+var csImg5 = require('../static/image/photography.svg');
 
 var Index =
 /*#__PURE__*/
@@ -128341,34 +128368,56 @@ function (_Component) {
       _sr.default.reveal(this.refs.demo, config);
 
       _sr.default.reveal(this.refs.use, config);
-
-      console.log(this.refs);
     }
   }, {
     key: "render",
     value: function render() {
       return _react.default.createElement("div", null, _react.default.createElement("div", {
         className: _main.default.introduction
-      }, _react.default.createElement("a", {
+      }, _react.default.createElement("img", {
+        src: csImg1,
+        className: _main.default.csImg1
+      }), _react.default.createElement("img", {
+        src: csImg2,
+        className: _main.default.csImg2
+      }), _react.default.createElement("img", {
+        src: csImg3,
+        className: _main.default.csImg3
+      }), _react.default.createElement("img", {
+        src: csImg4,
+        className: _main.default.csImg4
+      }), _react.default.createElement("img", {
+        src: csImg5,
+        className: _main.default.csImg5
+      }), _react.default.createElement("a", {
         name: "introduction",
         style: {
-          opacity: 0
+          'position': 'relative'
         }
-      }), _react.default.createElement(_introduction.default, {
+      }, _react.default.createElement("h1", {
+        className: _main.default.in_title,
+        "data-heading": "- INTRODUCTION -"
+      }, "- INTRODUCTION -")), _react.default.createElement(_introduction.default, {
         ref: "introduction"
       }), _react.default.createElement("a", {
         name: "demo",
         style: {
-          opacity: 0
+          'position': 'relative'
         }
-      }), _react.default.createElement(_demo.default, {
+      }, _react.default.createElement("h1", {
+        className: _main.default.in_title,
+        "data-heading": "- DEMO -"
+      }, "- DEMO -")), _react.default.createElement(_demo.default, {
         ref: "demo"
       }), _react.default.createElement("a", {
         name: "use",
         style: {
-          opacity: 0
+          'position': 'relative'
         }
-      }), _react.default.createElement(_useIt.default, {
+      }, _react.default.createElement("h1", {
+        className: _main.default.in_title,
+        "data-heading": "- USE IT -"
+      }, "- USE IT -")), _react.default.createElement(_useIt.default, {
         ref: "use"
       })), _react.default.createElement(_top.default, null));
     }
@@ -128378,7 +128427,7 @@ function (_Component) {
 }(_react.Component);
 
 exports.default = Index;
-},{"react":"node_modules/react/index.js","../static/main.scss":"src/static/main.scss","./sr":"src/component/sr.js","./introduction":"src/component/introduction.js","./demo":"src/component/demo.js","./useIt":"src/component/useIt.js","./top":"src/component/top.js"}],"src/main.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","../static/main.scss":"src/static/main.scss","./sr":"src/component/sr.js","./introduction":"src/component/introduction.js","./demo":"src/component/demo.js","./useIt":"src/component/useIt.js","./top":"src/component/top.js","../static/image/camera.svg":"src/static/image/camera.svg","../static/image/chucks.svg":"src/static/image/chucks.svg","../static/image/film.svg":"src/static/image/film.svg","../static/image/hat.svg":"src/static/image/hat.svg","../static/image/photography.svg":"src/static/image/photography.svg"}],"src/main.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -128536,7 +128585,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "59112" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "57182" + '/');
 
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);

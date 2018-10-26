@@ -121,11 +121,107 @@ body::-webkit-scrollbar {
 
 .introduction {
     position: absolute;
+    padding: 10rem 0;
     width: 100vw;
+    height: 100vh;
+    overflow-y: auto;
     display: flex;
     flex-direction: column;
     align-items: center;
-    background: url('./bg.jpg');
+    background-color: #fff;
+    background-image: url('./image/bg.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    background-size: cover;
+    background-origin: border-box;
+    perspective: 2px;
+    transform-style: preserve-3d;
+    &::-webkit-scrollbar {
+        display: none;
+    }
+}
+.in_title {
+    text-transform: uppercase;
+    transform: translate(-50%, -50%) skew(10deg) rotate(0deg);
+    font-size: 3vw;
+    top: 50%;
+    left: 50%;
+    margin: 0;
+    position: absolute;
+    text-rendering: optimizeLegibility;
+    font-weight: 900;
+    color: rgba(#ff9eb1, 0.5);
+    text-shadow: 1px 4px 6px #e6e2df, 0 0 0 #66303a, 1px 4px 6px #e6e2df;
+    white-space: nowrap;
+    
+    &:before {
+        content: attr(data-heading);
+        position: absolute;
+        left: 0;
+        top: -4.8%;
+        overflow: hidden;
+        width: 100%;
+        height: 50%;
+        color: #fbf7f4;
+        transform: translate(0.25vw, 0) skew(-13deg) scale(1, 1.2);
+        z-index: 2;
+        text-shadow: 2px -1px 6px rgba(0,0,0,0.2);
+    }
+    
+    &:after {
+        content: attr(data-heading);
+        position: absolute;
+        left: 0;
+        top: 0;
+        overflow: hidden;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+        color: #d3cfcc;
+        transform: translate(0vw, 0) skew(13deg) scale(1, 0.8);
+        clip-path: polygon(0 50%, 100% 50%, 100% 100%, 0% 100%);
+        text-shadow: 2px -1px 6px rgba(0,0,0,0.3);
+    }
+}
+
+.csImg {
+    position: absolute;
+}
+.csImg1 {
+    composes: csImg;
+    transform: translateZ(-7px);
+    top: -50vh;
+    left: -212vw;
+    z-index: -1;
+}
+.csImg2 {
+    composes: csImg;
+    transform: translateZ(0px);
+    top: 132vh;
+    right: 21vw;
+    z-index: -2;
+}
+.csImg3 {
+    composes: csImg;
+    transform: translateZ(-5px) rotate(-48deg);
+    top: 10vh;
+    right: -154vw;
+    z-index: -3;
+}
+.csImg4 {
+    composes: csImg;
+    transform: translateZ(-10px);
+    top: 200vh;
+    left: -30vw;
+    z-index: -4;
+}
+.csImg5 {
+    composes: csImg;
+    transform: translateZ(-2px) rotateZ(30deg);
+    top: 115vh;
+    left: -70vw;
+    z-index: -5;
 }
 
 .codeBlock {
