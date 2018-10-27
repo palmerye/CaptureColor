@@ -51,7 +51,7 @@ export default class Index extends Component {
     render() {
         return (
             <div>
-                <div className={style.introduction}>
+                <div className={style.index}>
                     <img src={csImg1} className={style.csImg1}/>
                     <img src={csImg2} className={style.csImg2}/>
                     <img src={csImg3} className={style.csImg3}/>

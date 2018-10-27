@@ -41,7 +41,7 @@ export default class Index extends Component {
     render() {
         return (
             <div>
-                <div className={style.index} >
+                <div className={style.home} >
                     <h1 ref='title'>CaptureColor</h1>
                     <div ref='badges'>
                         <a href="https://github.com/palmerye/CaptureColor" target="_blank">

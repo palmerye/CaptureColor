@@ -11,7 +11,6 @@ export default class Index extends Component {
             <div>
                 <div>
                     <h1>demo</h1>
-
                 </div>
             </div>
         )
