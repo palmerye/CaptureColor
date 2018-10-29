@@ -176,26 +176,28 @@ var reloadCSS = require('_css_loader');
 module.hot.dispose(reloadCSS);
 module.hot.accept(reloadCSS);
 module.exports = {
-        "badges": "_badges_qmk2x_15",
-        "home": "_home_qmk2x_23 _badges_qmk2x_15",
-        "masked-animation": "_masked-animation_qmk2x_1",
-        "header": "_header_qmk2x_52",
-        "headerList": "_headerList_qmk2x_70",
-        "index": "_index_qmk2x_97",
-        "in_title": "_in_title_qmk2x_118",
-        "csImg": "_csImg_qmk2x_165",
-        "csImg1": "_csImg1_qmk2x_168 _csImg_qmk2x_165",
-        "csImg2": "_csImg2_qmk2x_175 _csImg_qmk2x_165",
-        "csImg3": "_csImg3_qmk2x_182 _csImg_qmk2x_165",
-        "csImg4": "_csImg4_qmk2x_189 _csImg_qmk2x_165",
-        "csImg5": "_csImg5_qmk2x_196 _csImg_qmk2x_165",
-        "codeBlock": "_codeBlock_qmk2x_203",
-        "go": "_go_qmk2x_208",
-        "dropper": "_dropper_qmk2x_255",
-        "top": "_top_qmk2x_270",
-        "route-enter-active": "_route-enter-active_qmk2x_284",
-        "introduction": "_introduction_qmk2x_303",
-        "blink": "_blink_qmk2x_1"
+        "badges": "_badges_1kdft_15",
+        "home": "_home_1kdft_23 _badges_1kdft_15",
+        "masked-animation": "_masked-animation_1kdft_1",
+        "header": "_header_1kdft_52",
+        "headerList": "_headerList_1kdft_70",
+        "index": "_index_1kdft_97",
+        "in_title": "_in_title_1kdft_117",
+        "csImg": "_csImg_1kdft_164",
+        "csImg1": "_csImg1_1kdft_167 _csImg_1kdft_164",
+        "csImg2": "_csImg2_1kdft_174 _csImg_1kdft_164",
+        "csImg3": "_csImg3_1kdft_181 _csImg_1kdft_164",
+        "csImg4": "_csImg4_1kdft_188 _csImg_1kdft_164",
+        "csImg5": "_csImg5_1kdft_195 _csImg_1kdft_164",
+        "codeBlock": "_codeBlock_1kdft_202",
+        "go": "_go_1kdft_207",
+        "dropper": "_dropper_1kdft_254",
+        "top": "_top_1kdft_269",
+        "route-enter-active": "_route-enter-active_1kdft_283",
+        "introduction": "_introduction_1kdft_302",
+        "demo": "_demo_1kdft_311",
+        "demoArea": "_demoArea_1kdft_318",
+        "blink": "_blink_1kdft_1"
 };
 },{"./image\\bg.jpg":[["bg.f882d89e.jpg","src\\static\\image\\bg.jpg"],"src\\static\\image\\bg.jpg"],"_css_loader":"D:\\Develop\\nodejs\\node_global\\node_modules\\parcel-bundler\\src\\builtins\\css-loader.js"}],"node_modules\\react\\node_modules\\object-assign\\index.js":[function(require,module,exports) {
 /*
@@ -57903,7 +57905,13 @@ var Index = function (_Component) {
 }(_react.Component);
 
 exports.default = Index;
-},{"react":"node_modules\\react\\index.js","../static/main.scss":"src\\static\\main.scss","typed.js":"node_modules\\typed.js\\lib\\typed.js"}],"src\\component\\demo.js":[function(require,module,exports) {
+},{"react":"node_modules\\react\\index.js","../static/main.scss":"src\\static\\main.scss","typed.js":"node_modules\\typed.js\\lib\\typed.js"}],"src\\static\\image\\gif1.gif":[function(require,module,exports) {
+module.exports = "/gif1.748e0ff1.gif";
+},{}],"src\\static\\image\\gif2.gif":[function(require,module,exports) {
+module.exports = "/gif2.0047df98.gif";
+},{}],"src\\static\\image\\gif3.gif":[function(require,module,exports) {
+module.exports = "/gif3.10eab2b0.gif";
+},{}],"src\\component\\demo.js":[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -57928,16 +57936,47 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
+var CaptureColor = require('../static/CaptureColor.umd');
+var gif1 = require('../static/image/gif1.gif');
+var gif2 = require('../static/image/gif2.gif');
+var gif3 = require('../static/image/gif3.gif');
+
 var Index = function (_Component) {
     _inherits(Index, _Component);
 
     function Index() {
         _classCallCheck(this, Index);
 
-        return _possibleConstructorReturn(this, (Index.__proto__ || Object.getPrototypeOf(Index)).call(this));
+        var _this = _possibleConstructorReturn(this, (Index.__proto__ || Object.getPrototypeOf(Index)).call(this));
+
+        _this.state = {
+            thisColor: ''
+        };
+        return _this;
     }
 
     _createClass(Index, [{
+        key: 'componentDidMount',
+        value: function componentDidMount() {
+            this.capColor = new CaptureColor({
+                el: 'demo'
+            });
+        }
+    }, {
+        key: 'cap',
+        value: function cap() {
+            var _this2 = this;
+
+            this.capColor.pickColor().then(function (res) {
+                console.log('所选颜色为', res);
+                _this2.setState({
+                    thisColor: res
+                });
+            }).catch(function (err) {
+                console.error(err);
+            });
+        }
+    }, {
         key: 'render',
         value: function render() {
             return _react2.default.createElement(
@@ -57945,11 +57984,63 @@ var Index = function (_Component) {
                 null,
                 _react2.default.createElement(
                     'div',
-                    null,
+                    { className: _main2.default.demo },
                     _react2.default.createElement(
-                        'h1',
-                        null,
-                        'demo'
+                        'div',
+                        { id: 'demo', className: _main2.default.demoArea },
+                        _react2.default.createElement(
+                            'div',
+                            null,
+                            _react2.default.createElement(
+                                'h1',
+                                null,
+                                'DEMO'
+                            ),
+                            _react2.default.createElement(
+                                'h2',
+                                null,
+                                'DEMO'
+                            ),
+                            _react2.default.createElement(
+                                'h3',
+                                null,
+                                'DEMO'
+                            ),
+                            _react2.default.createElement(
+                                'h4',
+                                null,
+                                'DEMO'
+                            ),
+                            _react2.default.createElement(
+                                'h5',
+                                null,
+                                'DEMO'
+                            ),
+                            _react2.default.createElement(
+                                'h6',
+                                null,
+                                'DEMO'
+                            )
+                        ),
+                        _react2.default.createElement(
+                            'div',
+                            null,
+                            _react2.default.createElement('img', { src: gif1 }),
+                            _react2.default.createElement('img', { src: gif2 }),
+                            _react2.default.createElement('img', { src: gif3 })
+                        )
+                    ),
+                    _react2.default.createElement(
+                        'button',
+                        { onClick: this.cap.bind(this) },
+                        '\u70B9\u51FB\u8FD9\u91CC\u5438\u8272'
+                    ),
+                    _react2.default.createElement(
+                        'span',
+                        { style: { 'background': this.state.thisColor } },
+                        '\u5F53\u524D\u8272\u503C',
+                        this.state.thisColor,
+                        '\uFF0C\u5E76\u5DF2\u5B58\u5165\u7CFB\u7EDF\u526A\u5207\u677F'
                     )
                 )
             );
@@ -57960,7 +58051,7 @@ var Index = function (_Component) {
 }(_react.Component);
 
 exports.default = Index;
-},{"react":"node_modules\\react\\index.js","../static/main.scss":"src\\static\\main.scss"}],"node_modules\\prismjs\\prism.js":[function(require,module,exports) {
+},{"react":"node_modules\\react\\index.js","../static/main.scss":"src\\static\\main.scss","../static/CaptureColor.umd":"src\\static\\CaptureColor.umd.js","../static/image/gif1.gif":"src\\static\\image\\gif1.gif","../static/image/gif2.gif":"src\\static\\image\\gif2.gif","../static/image/gif3.gif":"src\\static\\image\\gif3.gif"}],"node_modules\\prismjs\\prism.js":[function(require,module,exports) {
 var global = arguments[3];
 
 /* **********************************************
@@ -59297,9 +59388,9 @@ module.bundle.Module = Module;
 
 var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
-  var hostname = undefined || location.hostname;
+  var hostname = '' || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + '64139' + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + '55990' + '/');
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);
 
