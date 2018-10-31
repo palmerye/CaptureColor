@@ -126,7 +126,7 @@ body::-webkit-scrollbar {
     position: absolute;
     padding: 20rem 0;
     width: 100vw;
-    height: 100vh;
+    height: 100%;
     overflow-y: auto;
     overflow-x: hidden;
     display: flex;
@@ -141,7 +141,6 @@ body::-webkit-scrollbar {
     background-origin: border-box;
     perspective: 2px;
     transform-style: preserve-3d;
-
     &::-webkit-scrollbar {
         // display: none;
         // width: 6px;
@@ -213,7 +212,7 @@ body::-webkit-scrollbar {
 .csImg1 {
     composes: csImg;
     transform: translateZ(-7px);
-    top: -50vh;
+    top: -2000px;
     left: -212vw;
     z-index: -1;
 }
@@ -221,7 +220,7 @@ body::-webkit-scrollbar {
 .csImg2 {
     composes: csImg;
     transform: translateZ(0px);
-    top: 132vh;
+    top: 2000px;
     right: 21vw;
     z-index: -2;
 }
@@ -229,7 +228,7 @@ body::-webkit-scrollbar {
 .csImg3 {
     composes: csImg;
     transform: translateZ(-5px) rotate(-48deg);
-    top: 10vh;
+    top: 10px;
     right: -154vw;
     z-index: -3;
 }
@@ -237,7 +236,7 @@ body::-webkit-scrollbar {
 .csImg4 {
     composes: csImg;
     transform: translateZ(-10px);
-    top: 200vh;
+    top: 20px;
     left: -30vw;
     z-index: -4;
 }
@@ -245,7 +244,7 @@ body::-webkit-scrollbar {
 .csImg5 {
     composes: csImg;
     transform: translateZ(-2px) rotateZ(30deg);
-    top: 115vh;
+    top: 15px;
     left: -70vw;
     z-index: -5;
 }
@@ -405,6 +404,7 @@ body::-webkit-scrollbar {
     }
 }
 .demoArea {
+    position: relative;
     width: 60vw;
     border: #e6e2df solid 1px;
     font-size: 2rem;
