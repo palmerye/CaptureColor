@@ -176,28 +176,28 @@ var reloadCSS = require('_css_loader');
 module.hot.dispose(reloadCSS);
 module.hot.accept(reloadCSS);
 module.exports = {
-        "badges": "_badges_1lsuf_15",
-        "home": "_home_1lsuf_23 _badges_1lsuf_15",
-        "masked-animation": "_masked-animation_1lsuf_1",
-        "header": "_header_1lsuf_52",
-        "headerList": "_headerList_1lsuf_70",
-        "index": "_index_1lsuf_97",
-        "in_title": "_in_title_1lsuf_117",
-        "csImg": "_csImg_1lsuf_164",
-        "csImg1": "_csImg1_1lsuf_167 _csImg_1lsuf_164",
-        "csImg2": "_csImg2_1lsuf_174 _csImg_1lsuf_164",
-        "csImg3": "_csImg3_1lsuf_181 _csImg_1lsuf_164",
-        "csImg4": "_csImg4_1lsuf_188 _csImg_1lsuf_164",
-        "csImg5": "_csImg5_1lsuf_195 _csImg_1lsuf_164",
-        "codeBlock": "_codeBlock_1lsuf_202",
-        "go": "_go_1lsuf_207",
-        "dropper": "_dropper_1lsuf_254",
-        "top": "_top_1lsuf_269",
-        "route-enter-active": "_route-enter-active_1lsuf_283",
-        "introduction": "_introduction_1lsuf_302",
-        "demo": "_demo_1lsuf_311",
-        "demoArea": "_demoArea_1lsuf_318",
-        "blink": "_blink_1lsuf_1"
+        "badges": "_badges_1ahxn_15",
+        "home": "_home_1ahxn_23 _badges_1ahxn_15",
+        "masked-animation": "_masked-animation_1ahxn_1",
+        "header": "_header_1ahxn_52",
+        "headerList": "_headerList_1ahxn_70",
+        "index": "_index_1ahxn_97",
+        "in_title": "_in_title_1ahxn_116",
+        "csImg": "_csImg_1ahxn_163",
+        "csImg1": "_csImg1_1ahxn_166 _csImg_1ahxn_163",
+        "csImg2": "_csImg2_1ahxn_173 _csImg_1ahxn_163",
+        "csImg3": "_csImg3_1ahxn_180 _csImg_1ahxn_163",
+        "csImg4": "_csImg4_1ahxn_187 _csImg_1ahxn_163",
+        "csImg5": "_csImg5_1ahxn_194 _csImg_1ahxn_163",
+        "codeBlock": "_codeBlock_1ahxn_201",
+        "go": "_go_1ahxn_206",
+        "dropper": "_dropper_1ahxn_253",
+        "top": "_top_1ahxn_268",
+        "route-enter-active": "_route-enter-active_1ahxn_282",
+        "introduction": "_introduction_1ahxn_301",
+        "demo": "_demo_1ahxn_310",
+        "demoArea": "_demoArea_1ahxn_317",
+        "blink": "_blink_1ahxn_1"
 };
 },{"./image\\bg.jpg":[["bg.f882d89e.jpg","src\\static\\image\\bg.jpg"],"src\\static\\image\\bg.jpg"],"_css_loader":"D:\\Develop\\nodejs\\node_global\\node_modules\\parcel-bundler\\src\\builtins\\css-loader.js"}],"node_modules\\react\\node_modules\\object-assign\\index.js":[function(require,module,exports) {
 /*
@@ -59184,11 +59184,6 @@ var Index = function (_Component) {
                 _react2.default.createElement(
                     'div',
                     { className: _main2.default.index },
-                    _react2.default.createElement('img', { src: csImg1, className: _main2.default.csImg1 }),
-                    _react2.default.createElement('img', { src: csImg2, className: _main2.default.csImg2 }),
-                    _react2.default.createElement('img', { src: csImg3, className: _main2.default.csImg3 }),
-                    _react2.default.createElement('img', { src: csImg4, className: _main2.default.csImg4 }),
-                    _react2.default.createElement('img', { src: csImg5, className: _main2.default.csImg5 }),
                     _react2.default.createElement(
                         'a',
                         { name: 'introduction', style: { 'position': 'relative' } },

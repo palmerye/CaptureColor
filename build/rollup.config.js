@@ -9,7 +9,7 @@ export default {
         name: 'CaptureColor',
         sourceMap: 'inline'
     }, {
-        file: './demo/src/CaptureColor.umd.js',
+        file: './demo/src/static/CaptureColor.umd.js',
         format: 'umd',
         name: 'CaptureColor',
         sourceMap: 'inline'

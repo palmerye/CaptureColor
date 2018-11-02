@@ -52,11 +52,11 @@ export default class Index extends Component {
         return (
             <div>
                 <div className={style.index}>
-                    <img src={csImg1} className={style.csImg1}/>
+                    {/* <img src={csImg1} className={style.csImg1}/>
                     <img src={csImg2} className={style.csImg2}/>
                     <img src={csImg3} className={style.csImg3}/>
                     <img src={csImg4} className={style.csImg4}/>
-                    <img src={csImg5} className={style.csImg5}/>
+                    <img src={csImg5} className={style.csImg5}/> */}
 
                     <a name="introduction" style={{'position': 'relative'}}>
                         <h1 className={style.in_title} data-heading="- INTRODUCTION -">- INTRODUCTION -</h1>

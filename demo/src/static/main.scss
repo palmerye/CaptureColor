@@ -126,7 +126,7 @@ body::-webkit-scrollbar {
     position: absolute;
     padding: 20rem 0;
     width: 100vw;
-    height: 100%;
+    // height: 1680px;
     overflow-y: auto;
     overflow-x: hidden;
     display: flex;
@@ -139,7 +139,7 @@ body::-webkit-scrollbar {
     background-attachment: fixed;
     background-size: cover;
     background-origin: border-box;
-    perspective: 2px;
+    perspective: 1px;
     transform-style: preserve-3d;
     &::-webkit-scrollbar {
         // display: none;
@@ -404,7 +404,6 @@ body::-webkit-scrollbar {
     }
 }
 .demoArea {
-    position: relative;
     width: 60vw;
     border: #e6e2df solid 1px;
     font-size: 2rem;
